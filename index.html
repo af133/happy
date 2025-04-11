@@ -2,23 +2,22 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Selamat Ulang Tahun Bulan 🌙</title>
   <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       font-family: 'Comic Neue', cursive;
-      background: linear-gradient(135deg, #0d0221, #1a093f);
+      background: radial-gradient(circle at top, #1d0033, #000);
       color: #fff;
       text-align: center;
       overflow-x: hidden;
-      min-height: 100vh;
     }
 
     .stars {
       background: url('https://media.giphy.com/media/l0ExncehJzexFpRHq/giphy.gif') repeat;
-      opacity: 0.15;
+      opacity: 0.2;
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
@@ -27,19 +26,19 @@
 
     h1 {
       margin-top: 60px;
-      font-size: 2.8rem;
+      font-size: 3rem;
       color: #ffd1ff;
       text-shadow: 0 0 10px #fff;
-      animation: swing 2s infinite alternate ease-in-out;
+      animation: shake 1.5s infinite alternate;
     }
 
-    @keyframes swing {
+    @keyframes shake {
       0% { transform: rotate(-2deg); }
       100% { transform: rotate(2deg); }
     }
 
     .age {
-      font-size: 1.6rem;
+      font-size: 1.8rem;
       margin-top: 10px;
       color: #ff88ff;
     }
@@ -48,153 +47,175 @@
       background: rgba(255,255,255,0.05);
       padding: 25px;
       margin: 30px auto;
-      max-width: 700px;
-      border-radius: 15px;
-      backdrop-filter: blur(6px);
-      box-shadow: 0 0 10px #ffffff20;
+      max-width: 600px;
+      border-radius: 12px;
+      backdrop-filter: blur(5px);
     }
 
     .msg p {
-      font-size: 1.2rem;
-      line-height: 1.8;
-      margin: 0.8rem 0;
+      font-size: 1.1rem;
+      line-height: 1.7;
     }
 
-    .emojis span {
-      font-size: 1.8rem;
-      animation: bounce 1s infinite alternate;
+    .msg span {
+      font-size: 2rem;
       display: inline-block;
-      margin: 0 5px;
+      animation: bounce 1s infinite alternate;
     }
 
     @keyframes bounce {
       0% { transform: translateY(0); }
-      100% { transform: translateY(-10px); }
+      100% { transform: translateY(-8px); }
     }
 
     .gallery {
       display: flex;
-      flex-wrap: nowrap;
       overflow-x: auto;
-      padding: 15px 10px;
       gap: 15px;
+      padding: 20px;
       scroll-snap-type: x mandatory;
       justify-content: center;
     }
 
     .gallery img {
-      height: 230px;
-      border-radius: 15px;
+      height: 250px;
+      border-radius: 12px;
       object-fit: cover;
       scroll-snap-align: center;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-      transition: transform 0.3s ease;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
     }
 
-    .gallery img:hover {
+    #musikBtn {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      padding: 8px 14px;
+      font-size: 0.9rem;
+      background-color: #ffc0f5;
+      color: #000;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+      z-index: 10;
+      transition: 0.3s ease;
+    }
+
+    #musikBtn:hover {
+      background-color: #ffd6f9;
       transform: scale(1.05);
     }
 
+    footer {
+      margin-top: 40px;
+      padding-bottom: 60px;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
     #lucuBtn {
-      margin: 30px 0;
+      margin-top: 40px;
       padding: 12px 25px;
       font-size: 1.1rem;
-      background-color: #ffc2f2;
+      background-color: #ff9aff;
       color: #000;
       border: none;
-      border-radius: 10px;
+      border-radius: 8px;
       cursor: pointer;
-      box-shadow: 0 0 10px #fff;
-      transition: all 0.3s ease;
+      transition: 0.3s;
     }
 
     #lucuBtn:hover {
-      background-color: #ffe0f9;
-      transform: scale(1.1);
+      background-color: #ffbaff;
+      transform: scale(1.05);
     }
 
     #fotoLucu {
       display: none;
-      margin: 30px auto;
+      margin-top: 30px;
     }
 
     #fotoLucu img {
-      max-width: 90%;
-      max-height: 300px;
-      border-radius: 15px;
-      animation: zoom 0.4s ease;
-      box-shadow: 0 0 20px #fff;
+      max-width: 300px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #fff;
+      animation: popUp 0.5s ease;
     }
 
-    @keyframes zoom {
-      from { transform: scale(0.3); opacity: 0; }
+    @keyframes popUp {
+      from { transform: scale(0.2); opacity: 0; }
       to { transform: scale(1); opacity: 1; }
     }
 
-    footer {
-      margin: 40px auto;
-      font-size: 0.9rem;
-      color: #aaa;
-    }
-
-    audio {
-      position: fixed;
-      bottom: 15px;
-      left: 15px;
-      z-index: 10;
-    }
-
     @media (max-width: 600px) {
-      h1 { font-size: 2rem; }
-      .age { font-size: 1.3rem; }
-      .msg p { font-size: 1rem; }
-      .gallery img { height: 180px; }
+      h1 { font-size: 2.2rem; }
+      .gallery img { height: 200px; }
     }
   </style>
 </head>
 <body>
-  <div class="stars"></div>
-  <h1>HAPPY BIRTHDAY BULAN 🌙</h1>
-  <div class="age">20 TAHUN WOI! 😱🧓</div>
 
-  <div class="msg">
-    <p>Selamat datang di fase hidup yang isinya tagihan, galau karir, dan kopi ☕️</p>
-    <p>Maap aku nggak tau ulang tahunmu wkwkwk, yang penting niatnya nyampe 🫠</p>
-    <p>Semoga kamu terus bersinar kayak... LED kosan. Nggak sih, kayak BULAN 🌕</p>
-    <div class="emojis">
-      <span>🥳</span><span>🌌</span><span>🛸</span><span>😆</span><span>💜</span>
-    </div>
-  </div>
+<div class="stars"></div>
 
-  <div class="gallery">
-    <img src="foto/wish1.png" alt="Lucu 1">
-    <img src="foto/wish2.png" alt="Lucu 2">
-    <img src="foto/wish3.png" alt="Lucu 3">
-    <img src="foto/wish4.png" alt="Lucu 4">
-  </div>
+<!-- Tombol musik -->
+<button onclick="toggleMusic()" id="musikBtn">🎵</button>
 
-  <button onclick="showFunnyPic()" id="lucuBtn">TEKAN INI ADA KEJUTAN 🤭</button>
+<!-- Audio (tersembunyi) -->
+<audio id="musik" loop>
+  <source src="Happy Birthday To You  Birthday Songs 2024.mp3" type="audio/mp3">
+</audio>
 
-  <div id="fotoLucu">
-    <img src="foto/wishgea.png" alt="Lucu banget">
-    <p style="margin-top: 10px;">😭 GAK KUAT...</p>
-  </div>
+<h1>SELAMAT ULANG TAHUN BULAN 🌙</h1>
+<div class="age">Sekarang Resmi 20 TAHUN! 🧓✨</div>
 
-  <footer>
-    Dibuat sepenuh hati oleh temenmu yang kece 🫣<br>
-    Powered by kopi & memes 🌈
-  </footer>
+<div class="msg">
+  <p>Selamat datang di usia penuh tagihan dan kopi ☕️✨</p>
+  <p>Weee jangan lupa traktiran gak seee wwkwkwkkwkwkwk, bercandaaa</p>
+  <p>Mohon maaf wakk aku kagak tau kau ulanga taunn, tapi semoga kamu terus bersinar... kayak nama panggilanmu: <strong>Bulan</strong> 🌌</p>
+  <p><span>🎉</span> <span>🥳</span> <span>🌕</span> <span>🪐</span> <span>💫</span></p>
+</div>
 
-  <audio autoplay loop controls>
-    <source src="Happy Birthday To You Birthday Songs 2024.mp3" type="audio/mp3">
-  </audio>
+<div class="gallery">
+  <img src="wish1.png" alt="Foto 1">
+  <img src="wish2.png" alt="Foto 2">
+  <img src="wish3.png" alt="Foto 3">
+  <img src="wish4.png" alt="Foto 4">
+</div>
 
-  <script>
-    function showFunnyPic() {
-      document.getElementById('fotoLucu').style.display = 'block';
-      document.getElementById('lucuBtn').disabled = true;
-      document.getElementById('lucuBtn').innerText = 'Udah liat? JANGAN KETAWA SENDIRI YA 😂';
+<button onclick="showFunnyPic()" id="lucuBtn">Klik kalau kamu siap ngakak 🤭</button>
+
+<div id="fotoLucu">
+  <img src="wishgea.png" alt="Foto Lucu">
+  <p style="margin-top: 10px;">HAHAHA KETAWALAH BULAN 😆</p>
+</div>
+
+<footer>
+  Dibuat oleh temenmu yang kece ini 😅<br>
+  Dengan bumbu pecel & nasi padang 💜🛸
+</footer>
+
+<script>
+  function showFunnyPic() {
+    document.getElementById('fotoLucu').style.display = 'block';
+    document.getElementById('lucuBtn').disabled = true;
+    document.getElementById('lucuBtn').innerText = 'Udah ketawa belum? 😂';
+  }
+
+  let isPlaying = false;
+  function toggleMusic() {
+    const musik = document.getElementById('musik');
+    const btn = document.getElementById('musikBtn');
+    if (!isPlaying) {
+      musik.play();
+      btn.innerText = '🔊';
+      isPlaying = true;
+    } else {
+      musik.pause();
+      btn.innerText = '🎵';
+      isPlaying = false;
     }
-  </script>
+  }
+</script>
+
 </body>
 </html>
