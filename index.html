@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Selamat Ulang Tahun Bulan 🌙</title>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Neue', cursive;
+      background: linear-gradient(135deg, #0d0221, #1a093f);
+      color: #fff;
+      text-align: center;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    .stars {
+      background: url('https://media.giphy.com/media/l0ExncehJzexFpRHq/giphy.gif') repeat;
+      opacity: 0.15;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -1;
+    }
+
+    h1 {
+      margin-top: 60px;
+      font-size: 2.8rem;
+      color: #ffd1ff;
+      text-shadow: 0 0 10px #fff;
+      animation: swing 2s infinite alternate ease-in-out;
+    }
+
+    @keyframes swing {
+      0% { transform: rotate(-2deg); }
+      100% { transform: rotate(2deg); }
+    }
+
+    .age {
+      font-size: 1.6rem;
+      margin-top: 10px;
+      color: #ff88ff;
+    }
+
+    .msg {
+      background: rgba(255,255,255,0.05);
+      padding: 25px;
+      margin: 30px auto;
+      max-width: 700px;
+      border-radius: 15px;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 0 10px #ffffff20;
+    }
+
+    .msg p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      margin: 0.8rem 0;
+    }
+
+    .emojis span {
+      font-size: 1.8rem;
+      animation: bounce 1s infinite alternate;
+      display: inline-block;
+      margin: 0 5px;
+    }
+
+    @keyframes bounce {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-10px); }
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      padding: 15px 10px;
+      gap: 15px;
+      scroll-snap-type: x mandatory;
+      justify-content: center;
+    }
+
+    .gallery img {
+      height: 230px;
+      border-radius: 15px;
+      object-fit: cover;
+      scroll-snap-align: center;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    #lucuBtn {
+      margin: 30px 0;
+      padding: 12px 25px;
+      font-size: 1.1rem;
+      background-color: #ffc2f2;
+      color: #000;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #fff;
+      transition: all 0.3s ease;
+    }
+
+    #lucuBtn:hover {
+      background-color: #ffe0f9;
+      transform: scale(1.1);
+    }
+
+    #fotoLucu {
+      display: none;
+      margin: 30px auto;
+    }
+
+    #fotoLucu img {
+      max-width: 90%;
+      max-height: 300px;
+      border-radius: 15px;
+      animation: zoom 0.4s ease;
+      box-shadow: 0 0 20px #fff;
+    }
+
+    @keyframes zoom {
+      from { transform: scale(0.3); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    footer {
+      margin: 40px auto;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    audio {
+      position: fixed;
+      bottom: 15px;
+      left: 15px;
+      z-index: 10;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      .age { font-size: 1.3rem; }
+      .msg p { font-size: 1rem; }
+      .gallery img { height: 180px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="stars"></div>
+  <h1>HAPPY BIRTHDAY BULAN 🌙</h1>
+  <div class="age">20 TAHUN WOI! 😱🧓</div>
+
+  <div class="msg">
+    <p>Selamat datang di fase hidup yang isinya tagihan, galau karir, dan kopi ☕️</p>
+    <p>Maap aku nggak tau ulang tahunmu wkwkwk, yang penting niatnya nyampe 🫠</p>
+    <p>Semoga kamu terus bersinar kayak... LED kosan. Nggak sih, kayak BULAN 🌕</p>
+    <div class="emojis">
+      <span>🥳</span><span>🌌</span><span>🛸</span><span>😆</span><span>💜</span>
+    </div>
+  </div>
+
+  <div class="gallery">
+    <img src="foto/wish1.png" alt="Lucu 1">
+    <img src="foto/wish2.png" alt="Lucu 2">
+    <img src="foto/wish3.png" alt="Lucu 3">
+    <img src="foto/wish4.png" alt="Lucu 4">
+  </div>
+
+  <button onclick="showFunnyPic()" id="lucuBtn">TEKAN INI ADA KEJUTAN 🤭</button>
+
+  <div id="fotoLucu">
+    <img src="foto/wishgea.png" alt="Lucu banget">
+    <p style="margin-top: 10px;">😭 GAK KUAT...</p>
+  </div>
+
+  <footer>
+    Dibuat sepenuh hati oleh temenmu yang kece 🫣<br>
+    Powered by kopi & memes 🌈
+  </footer>
+
+  <audio autoplay loop controls>
+    <source src="musik/lofi.mp3" type="audio/mp3">
+  </audio>
+
+  <script>
+    function showFunnyPic() {
+      document.getElementById('fotoLucu').style.display = 'block';
+      document.getElementById('lucuBtn').disabled = true;
+      document.getElementById('lucuBtn').innerText = 'Udah liat? JANGAN KETAWA SENDIRI YA 😂';
+    }
+  </script>
+</body>
+</html>
